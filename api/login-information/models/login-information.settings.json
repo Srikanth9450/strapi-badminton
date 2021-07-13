@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "login_informations",
+  "info": {
+    "name": "login information"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "loggedAt": {
+      "type": "datetime"
+    },
+    "username": {
+      "type": "string"
+    },
+    "requestedFor": {
+      "type": "string"
+    }
+  }
+}

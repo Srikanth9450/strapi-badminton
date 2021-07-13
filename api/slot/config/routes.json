@@ -1,0 +1,83 @@
+{
+    "routes": [{
+            "method": "GET",
+            "path": "/slots",
+            "handler": "slot.find",
+            "config": {
+                "policies": ["is-authenticated"]
+            }
+        },
+
+        {
+            "method": "GET",
+            "path": "/slots/count",
+            "handler": "slot.count",
+            "config": {
+                "policies": ["is-authenticated"]
+            }
+        },
+        {
+            "method": "GET",
+            "path": "/slots/:id",
+            "handler": "slot.findOne",
+            "config": {
+                "policies": ["is-authenticated"]
+            }
+        },
+        {
+            "method": "POST",
+            "path": "/slots",
+            "handler": "slot.create",
+            "config": {
+                "policies": ["is-authenticated"]
+            }
+        },
+        {
+            "method": "PUT",
+            "path": "/slots/:id",
+            "handler": "slot.update",
+            "config": {
+                "policies": []
+            }
+        },
+        {
+            "method": "DELETE",
+            "path": "/slots/:id",
+            "handler": "slot.delete",
+            "config": {
+                "policies": []
+            }
+        },
+        {
+            "method": "POST",
+            "path": "/av",
+            "handler": "slot.ava",
+            "config": {
+                "policies": ["is-authenticated"]
+            }
+        }, {
+            "method": "POST",
+            "path": "/b",
+            "handler": "slot.b",
+            "config": {
+                "policies": ["is-authenticated"]
+            }
+        },
+        {
+            "method": "GET",
+            "path": "/findall",
+            "handler": "slot.findall",
+            "config": {
+                "policies": []
+            }
+        },
+        {
+            "method": "GET",
+            "path": "/getone",
+            "handler": "slot.getonlyone",
+            "config": {
+                "policies": ["is-authenticated"]
+            }
+        }
+    ]
+}

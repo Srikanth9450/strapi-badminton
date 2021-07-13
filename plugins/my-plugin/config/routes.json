@@ -1,0 +1,21 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/totalbookings",
+      "handler": "my-plugin.totalbookings",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/maximumslot",
+      "handler": "my-plugin.maximumBooked",
+      "config": {
+        "policies": []
+      }
+    }
+
+  ]
+}

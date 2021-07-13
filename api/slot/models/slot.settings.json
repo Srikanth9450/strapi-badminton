@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "slots",
+  "info": {
+    "name": "slot"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    },
+    "from": {
+      "type": "time"
+    },
+    "to": {
+      "type": "time"
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "slots"
+    }
+  }
+}
