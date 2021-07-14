@@ -35,7 +35,7 @@ module.exports = {
    */
 
 
-   '1 7 * * * *': async() => {
+   '1 25 * * * *': async() => {
       // Add your own logic here (e.g. send a queue of email, create a database backup, etc.).
       var x= (await gettingUserData()).toString() 
 
@@ -47,6 +47,4 @@ module.exports = {
     html: x,
   });
     }
-
-
 };

@@ -9,7 +9,6 @@
  function lastSevenDays() {
   var dates = []
   const d = new Date();
-
   var extra;
   var extra2;
   var subtract_one = 0
@@ -48,6 +47,7 @@ module.exports = {
     const slot = await strapi.services.slot.find({ date_in:last })
     return sanitizeEntity(slot,{ model: strapi.models.slot })
 
+    
   },
   maximumBooked : async(ctx)=>{
     var booking_list=[];

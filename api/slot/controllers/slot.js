@@ -177,7 +177,7 @@ module.exports = {
     
     },
     async getonlyone(ctx){
-      var result = await  strapi.services.slot.findingOne('login-information')
+      var result = await  strapi.services.slot.findingOne('slot')
       return ctx.send(result)
     }
 };
