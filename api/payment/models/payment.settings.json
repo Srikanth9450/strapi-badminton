@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "name": "payment"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "transaction_id": {
+      "type": "string",
+      "unique": true
+    },
+    "username": {
+      "type": "string"
+    },
+    "slot": {
+      "model": "slot",
+      "via": "payment"
+    }
+  }
+}

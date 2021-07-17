@@ -11,6 +11,8 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
     "ical-generator": "^2.2.0",
     "knex": "0.21.18",
     "sqlite3": "5.0.0",
@@ -19,13 +21,16 @@
     "strapi-connector-bookshelf": "3.6.5",
     "strapi-plugin-content-manager": "3.6.5",
     "strapi-plugin-content-type-builder": "3.6.5",
+    "strapi-plugin-documentation": "^3.6.5",
     "strapi-plugin-email": "3.6.5",
     "strapi-plugin-i18n": "3.6.5",
     "strapi-plugin-upload": "3.6.5",
     "strapi-plugin-users-permissions": "3.6.5",
     "strapi-provider-email-nodemailer": "^3.6.5",
     "strapi-provider-email-sendgrid": "^3.6.5",
-    "strapi-utils": "3.6.5"
+    "strapi-utils": "3.6.5",
+    "stripe": "^8.162.0",
+    "uuid": "^8.3.2"
   },
   "author": {
     "name": "A Strapi developer"

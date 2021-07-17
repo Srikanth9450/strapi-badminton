@@ -35,16 +35,16 @@ module.exports = {
    */
 
 
-   '1 25 * * * *': async() => {
+   /* '* * * * * *': async() => {
       // Add your own logic here (e.g. send a queue of email, create a database backup, etc.).
       var x= (await gettingUserData()).toString() 
-
+      console.log(x)
   await strapi.plugins['email'].services.email.send({
-    to: 'srikanthh.gattu@gmail.com',
+    to: 'srikanth.g@cumulations.com',
     from: 'srikanthh.gattu@gmail.com',
     subject: 'total bookings and timeslots booked today',
     text: 'Hello world',
     html: x,
   });
-    }
+    } */
 };

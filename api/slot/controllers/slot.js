@@ -1,11 +1,12 @@
 'use strict';
-
+const jwt = require("jsonwebtoken")
 const { default: parseJSON } = require('date-fns/parseJSON');
 /**
  * Read the documentation (https://strapi.io/documentation/developer-docs/latest/development/backend-customization.html#core-controllers)
  * to customize this controller
  */
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
+const stripe = require("stripe")("sk_test_51JDYgISDbOAe3XQ7g18GkfDLWEVf2vbvMkaJI7WEoKIxXcnRs09lCISGMAuFG1XEesPqn5GJGPobCqTz7vEwsinX00nBPrFxV6")
 
 
 //sanitizeEntity will stop showing adminstration data
@@ -90,17 +91,41 @@ module.exports = {
             return { "error": "already this slot is booked" };
         }
         let entity;
-        console.log(ctx)
-        if (ctx.is('multipart')) {
-            const { data, files } = parseMultipartData(ctx);
-            data.author = ctx.state.user;
-            entity = await strapi.services.slot.create(data, { files });
-        } else {
-            ctx.request.body.users_permissions_user = ctx.state.user;
-            console.log(ctx.state.user.username)
-            entity = await strapi.services.slot.create(ctx.request.body);
+        const check_trasaction= await strapi.services.slot.find({
+            "payment.transaction_id":ctx.request.body.id
+        })
+
+        /* console.log("check",check_trasaction)   */      
+        if(!check_trasaction.length == 0){
+            /* console.log("after length",check_trasaction) */
+            return ctx.send("do the payment before continueing")
         }
-        return sanitizeEntity(entity, { model: strapi.models.slot });
+        else {
+
+            ctx.request.body.users_permissions_user = ctx.state.user;
+            console.log(ctx.state.user)
+            entity = await strapi.services.slot.create({
+                "date":ctx.request.body.date,
+                "from":ctx.request.body.from,
+                "to":ctx.request.body.to,
+                "users_permissions_user":ctx.state.user,
+            });
+            var id = entity.id
+            var entity2 = await strapi.services.payment.update({transaction_id:ctx.request.body.id},{
+              /*   "payment":{
+                    "id": 2,
+                    "username": "a@a.com",
+                    "transaction_id": "ch_1JDaudSDbOAe3XQ75aGrEGq5",
+                    "amount": 10,
+                    "slot": id,
+                    "published_at": "2021-07-15T20:12:04.880Z",
+                    "created_at": "2021-07-15T20:12:04.885Z",
+                    "updated_at": "2021-07-16T05:35:35.500Z"
+                } */
+                slot:id
+            })
+        }
+        return sanitizeEntity(entity2, { model: strapi.models.slot });
     },
 
     /**
@@ -179,5 +204,48 @@ module.exports = {
     async getonlyone(ctx){
       var result = await  strapi.services.slot.findingOne('slot')
       return ctx.send(result)
-    }
+    },
+     async stripePay(ctx){
+        const {product,token} = ctx.request.body;
+        console.log("product",product)
+        console.log("price",product.price)
+        
+
+        return stripe.customers.create({
+            email :token.email,
+            source:token.id,
+            name:"srikanth",
+            address:{
+                line1: 'vajinepally',
+    postal_code: '506168',
+    city: 'hyderabad',
+    state: 'telangana',
+    country: 'India',
+
+            }
+
+        })
+        .then((customer)=>{
+            stripe.charges.create({
+                amount:product.price*100,
+                description:"badminton slot",
+                currency : "INR",
+                customer:customer.id,
+                receipt_email:token.email,
+                description: `purchase of ${product.name}`
+            }).then(async (charge)=>{
+                var id = charge.id
+                var name = charge.billing_details.name
+                var price =  product.price
+                var result = await strapi.services.payment.create({
+                    transaction_id :id,
+                    username:name
+
+                });
+                console.log(result)
+
+            }).catch(err =>{console.log(err)})
+        })
+
+    } 
 };

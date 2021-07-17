@@ -72,12 +72,13 @@
             }
         },
         {
-            "method": "GET",
-            "path": "/getone",
-            "handler": "slot.getonlyone",
+            "method": "POST",
+            "path": "/payment",
+            "handler": "slot.stripePay",
             "config": {
-                "policies": ["isAdmin"]
+                "policies": []
             }
         }
+        
     ]
 }
