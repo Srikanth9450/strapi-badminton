@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/16/2021 11:20:19 PM"
+    "x-generation-date": "07/20/2021 11:17:27 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -45,7 +45,7 @@
     }
   ],
   "paths": {
-    "/login-informations": {
+    "/lastsevendaysslots": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -55,10 +55,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Lastsevendaysslot"
                   }
                 }
               }
@@ -97,7 +96,7 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "parameters": [
           {
@@ -247,11 +246,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Lastsevendaysslot"
                 }
               }
             }
@@ -289,7 +284,7 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "requestBody": {
           "description": "",
@@ -297,14 +292,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewLogin-information"
+                "$ref": "#/components/schemas/NewLastsevendaysslot"
               }
             }
           }
         }
       }
     },
-    "/login-informations/count": {
+    "/lastsevendaysslots/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -315,8 +310,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -356,12 +351,12 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "parameters": []
       }
     },
-    "/login-informations/{id}": {
+    "/lastsevendaysslots/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -371,11 +366,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Lastsevendaysslot"
                 }
               }
             }
@@ -413,7 +404,7 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "parameters": [
           {
@@ -437,11 +428,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Lastsevendaysslot"
                 }
               }
             }
@@ -479,7 +466,7 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "requestBody": {
           "description": "",
@@ -487,7 +474,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewLogin-information"
+                "$ref": "#/components/schemas/NewLastsevendaysslot"
               }
             }
           }
@@ -553,7 +540,7 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "parameters": [
           {
@@ -943,79 +930,6 @@
           }
         ]
       },
-      "put": {
-        "deprecated": false,
-        "description": "Update a record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Payment"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Payment"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPayment"
-              }
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "",
-            "deprecated": false,
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ]
-      },
       "delete": {
         "deprecated": false,
         "description": "Delete a record",
@@ -1080,7 +994,148 @@
         ]
       }
     },
-    "/getone": {
+    "/payments/cancel": {
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Payment"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": []
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Payment"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "foo": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/slots/previous": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -3956,7 +4011,7 @@
   },
   "components": {
     "schemas": {
-      "Login-information": {
+      "Lastsevendaysslot": {
         "required": [
           "id"
         ],
@@ -3964,14 +4019,14 @@
           "id": {
             "type": "string"
           },
-          "loggedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
           "username": {
             "type": "string"
           },
-          "requestedFor": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "time": {
             "type": "string"
           },
           "published_at": {
@@ -3980,16 +4035,16 @@
           }
         }
       },
-      "NewLogin-information": {
+      "NewLastsevendaysslot": {
         "properties": {
-          "loggedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
           "username": {
             "type": "string"
           },
-          "requestedFor": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "time": {
             "type": "string"
           },
           "published_at": {
@@ -4052,6 +4107,10 @@
               }
             }
           },
+          "cancel": {
+            "type": "boolean",
+            "default": false
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -4068,6 +4127,10 @@
           },
           "slot": {
             "type": "string"
+          },
+          "cancel": {
+            "type": "boolean",
+            "default": false
           },
           "published_at": {
             "type": "string",
@@ -4166,6 +4229,9 @@
               },
               "slot": {
                 "type": "string"
+              },
+              "cancel": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"
@@ -4549,6 +4615,9 @@
     }
   },
   "tags": [
+    {
+      "name": "Lastsevendaysslot"
+    },
     {
       "name": "Payment"
     },

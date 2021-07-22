@@ -1,8 +1,9 @@
 {
-    "routes": [{
+    "routes": [
+        {
             "method": "GET",
-            "path": "/slots",
-            "handler": "slot.find",
+            "path": "/slots/previous",
+            "handler": "slot.previous",
             "config": {
                 "policies": ["is-authenticated"]
             }

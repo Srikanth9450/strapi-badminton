@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "login_informations",
+  "collectionName": "lastsevendaysslots",
   "info": {
-    "name": "login information"
+    "name": "lastsevendaysslot"
   },
   "options": {
     "increments": true,
@@ -11,14 +11,14 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "loggedAt": {
-      "type": "datetime"
-    },
     "username": {
       "type": "string"
     },
-    "requestedFor": {
-      "type": "string"
+    "date": {
+      "type": "date"
+    },
+    "time": {
+      "type": "time"
     }
   }
 }

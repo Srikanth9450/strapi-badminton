@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/login-informations": {
+    "/lastsevendaysslots": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -10,10 +10,9 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Lastsevendaysslot"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "parameters": [
           {
@@ -202,11 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Lastsevendaysslot"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewLogin-information"
+                "$ref": "#/components/schemas/NewLastsevendaysslot"
               }
             }
           }
         }
       }
     },
-    "/login-informations/count": {
+    "/lastsevendaysslots/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -270,8 +265,8 @@
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "parameters": []
       }
     },
-    "/login-informations/{id}": {
+    "/lastsevendaysslots/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -326,11 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Lastsevendaysslot"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "parameters": [
           {
@@ -392,11 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Lastsevendaysslot"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewLogin-information"
+                "$ref": "#/components/schemas/NewLastsevendaysslot"
               }
             }
           }
@@ -508,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Login-information"
+          "Lastsevendaysslot"
         ],
         "parameters": [
           {
@@ -527,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Login-information": {
+      "Lastsevendaysslot": {
         "required": [
           "id"
         ],
@@ -535,14 +522,14 @@
           "id": {
             "type": "string"
           },
-          "loggedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
           "username": {
             "type": "string"
           },
-          "requestedFor": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "time": {
             "type": "string"
           },
           "published_at": {
@@ -551,16 +538,16 @@
           }
         }
       },
-      "NewLogin-information": {
+      "NewLastsevendaysslot": {
         "properties": {
-          "loggedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
           "username": {
             "type": "string"
           },
-          "requestedFor": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "time": {
             "type": "string"
           },
           "published_at": {
@@ -577,5 +564,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Lastsevendaysslot"
+    }
+  ]
 }

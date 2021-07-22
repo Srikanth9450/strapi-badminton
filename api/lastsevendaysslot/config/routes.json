@@ -2,48 +2,48 @@
   "routes": [
     {
       "method": "GET",
-      "path": "/login-informations",
-      "handler": "login-information.find",
+      "path": "/lastsevendaysslots",
+      "handler": "lastsevendaysslot.find",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/login-informations/count",
-      "handler": "login-information.count",
+      "path": "/lastsevendaysslots/count",
+      "handler": "lastsevendaysslot.count",
       "config": {
         "policies": []
       }
     },
     {
       "method": "GET",
-      "path": "/login-informations/:id",
-      "handler": "login-information.findOne",
+      "path": "/lastsevendaysslots/:id",
+      "handler": "lastsevendaysslot.findOne",
       "config": {
         "policies": []
       }
     },
     {
       "method": "POST",
-      "path": "/login-informations",
-      "handler": "login-information.create",
+      "path": "/lastsevendaysslots",
+      "handler": "lastsevendaysslot.create",
       "config": {
         "policies": []
       }
     },
     {
       "method": "PUT",
-      "path": "/login-informations/:id",
-      "handler": "login-information.update",
+      "path": "/lastsevendaysslots/:id",
+      "handler": "lastsevendaysslot.update",
       "config": {
         "policies": []
       }
     },
     {
       "method": "DELETE",
-      "path": "/login-informations/:id",
-      "handler": "login-information.delete",
+      "path": "/lastsevendaysslots/:id",
+      "handler": "lastsevendaysslot.delete",
       "config": {
         "policies": []
       }

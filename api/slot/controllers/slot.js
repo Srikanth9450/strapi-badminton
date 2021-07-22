@@ -28,6 +28,26 @@ module.exports = {
      *
      * @return {Object}
      */
+
+
+
+     async previous(ctx) {
+        console.log("working")
+        let entity;
+        console.log(ctx.state.user.id)
+        entity = await strapi.services.slot.find({
+            'users_permissions_user.id': ctx.state.user.id,
+            'payment.cancel':false
+
+        });
+        console.log(entity)
+        if (!entity) {
+            return { "bookings": "there is no previous bookings" }
+        }
+        return sanitizeEntity(entity, { model: strapi.models.slot })
+    },
+
+
     async ava(ctx) {
         var time_slots =  [...selecting_timeslots]
         var req_date = ctx.request.body.date_re + " 23:00" // I set the time to 23 because to compare the date is less than present date or not
@@ -76,7 +96,6 @@ module.exports = {
         return ctx.send(time_slots)
 
     },
-
     async create(ctx) {
         console.log(ctx.request.body.date)
         var timeslot = new Date(ctx.request.body.date + " " + ctx.request.body.from)
@@ -158,17 +177,7 @@ module.exports = {
 
         return sanitizeEntity(entity, { model: strapi.models.slot });
     },
-    async find(ctx) {
-        let entity;
-        console.log(ctx.state.user.id)
-        entity = await strapi.services.slot.find({
-            'users_permissions_user.id': ctx.state.user.id
-        });
-        if (!entity) {
-            return { "bookings": "there is no previous bookings" }
-        }
-        return sanitizeEntity(entity, { model: strapi.models.slot })
-    },
+    
     async count(ctx) {
         let entity;
         console.log(ctx.state.user.id)

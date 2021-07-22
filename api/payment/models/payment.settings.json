@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "payments",
   "info": {
-    "name": "payment"
+    "name": "payment",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -21,6 +22,10 @@
     "slot": {
       "model": "slot",
       "via": "payment"
+    },
+    "cancel": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

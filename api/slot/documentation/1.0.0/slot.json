@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/getone": {
+    "/slots/previous": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -735,6 +735,9 @@
               },
               "slot": {
                 "type": "string"
+              },
+              "cancel": {
+                "type": "boolean"
               },
               "published_at": {
                 "type": "string"

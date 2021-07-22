@@ -1,6 +1,7 @@
 import React, { memo,useEffect,useState } from 'react';
 import axios from 'axios';
 
+
 class App extends React.Component {
   // State of your application
   state = {
@@ -8,8 +9,10 @@ class App extends React.Component {
     error: null,
   };
 
+
   // Fetch your restaurants immediately after the component is mounted
-  componentDidMount = async () => {
+  componentDidMount = async () => {  
+    
     try {
       const response = await axios.get('http://localhost:1337/my-plugin/totalbookings');
       this.setState({ slots: response.data });

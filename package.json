@@ -12,9 +12,11 @@
   "devDependencies": {},
   "dependencies": {
     "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "ical-generator": "^2.2.0",
     "knex": "0.21.18",
+    "pg": "^8.6.0",
     "sqlite3": "5.0.0",
     "strapi": "3.6.5",
     "strapi-admin": "3.6.5",
@@ -23,14 +25,17 @@
     "strapi-plugin-content-type-builder": "3.6.5",
     "strapi-plugin-documentation": "^3.6.5",
     "strapi-plugin-email": "3.6.5",
+    "strapi-plugin-entreprenerd-stripe": "^0.1.1",
     "strapi-plugin-i18n": "3.6.5",
     "strapi-plugin-upload": "3.6.5",
     "strapi-plugin-users-permissions": "3.6.5",
     "strapi-provider-email-nodemailer": "^3.6.5",
     "strapi-provider-email-sendgrid": "^3.6.5",
+    "strapi-provider-upload-aws-s3": "^3.6.5",
     "strapi-utils": "3.6.5",
     "stripe": "^8.162.0",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "yargs": "^17.0.1"
   },
   "author": {
     "name": "A Strapi developer"

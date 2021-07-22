@@ -34,8 +34,8 @@
     },
     {
       "method": "PUT",
-      "path": "/payments/:id",
-      "handler": "payment.update",
+      "path": "/payments/cancel",
+      "handler": "payment.cancel",
       "config": {
         "policies": []
       }
@@ -46,6 +46,15 @@
       "handler": "payment.delete",
       "config": {
         "policies": []
+      }
+    }
+    
+    ,{
+      "method": "POST",
+      "path": "/payments/cancel",
+      "handler": "payment.cancel",
+      "config": {
+        "policies": ["global::isAuthenticated"]
       }
     }
   ]
