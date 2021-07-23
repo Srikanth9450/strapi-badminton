@@ -215,12 +215,13 @@ module.exports = {
       return ctx.send(result)
     },
      async stripePay(ctx){
+        var result;
         const {product,token} = ctx.request.body;
         console.log("product",product)
-        console.log("price",product.price)
+        console.log("price",token)
         
 
-        return stripe.customers.create({
+        console.log( await stripe.customers.create({
             email :token.email,
             source:token.id,
             name:"srikanth",
@@ -246,15 +247,15 @@ module.exports = {
                 var id = charge.id
                 var name = charge.billing_details.name
                 var price =  product.price
-                var result = await strapi.services.payment.create({
+                result = await strapi.services.payment.create({
                     transaction_id :id,
                     username:name
 
                 });
-                console.log(result)
-
+                console.log(result.transaction_id)
+                return result.transaction_id
             }).catch(err =>{console.log(err)})
-        })
-
+        }))
+        
     } 
 };

@@ -11,16 +11,17 @@ module.exports = ({ env }) => ({
         testAddress: 'srikanthh.gattu@gmail.com',
       },
     },
-    // ...
     upload: {
       provider: 'aws-s3',
       providerOptions: {
-        accessKeyId: env('AWS_ACCESS_KEY_ID'),
-        secretAccessKey: env('AWS_ACCESS_SECRET'),
-        region: env('AWS_REGION'),
+        accessKeyId: env('AKIA3UHUR4XOTC6K3MPC'),
+        secretAccessKey: env('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'),
+        region: env('us-east-2'),
         params: {
-          Bucket: env('AWS_BUCKET_NAME'),
+          Bucket: env('strapi-images-srikanth'),
         },
       },
     },
+    // ...
+   
   });
