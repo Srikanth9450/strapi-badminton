@@ -71,14 +71,6 @@
             "config": {
                 "policies": []
             }
-        },
-        {
-            "method": "POST",
-            "path": "/payment",
-            "handler": "slot.stripePay",
-            "config": {
-                "policies": []
-            }
         }
         
     ]

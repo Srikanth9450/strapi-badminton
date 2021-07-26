@@ -213,49 +213,6 @@ module.exports = {
     async getonlyone(ctx){
       var result = await  strapi.services.slot.findingOne('slot')
       return ctx.send(result)
-    },
-     async stripePay(ctx){
-        var result;
-        const {product,token} = ctx.request.body;
-        console.log("product",product)
-        console.log("price",token)
-        
-
-        console.log( await stripe.customers.create({
-            email :token.email,
-            source:token.id,
-            name:"srikanth",
-            address:{
-                line1: 'vajinepally',
-    postal_code: '506168',
-    city: 'hyderabad',
-    state: 'telangana',
-    country: 'India',
-
-            }
-
-        })
-        .then((customer)=>{
-            stripe.charges.create({
-                amount:product.price*100,
-                description:"badminton slot",
-                currency : "INR",
-                customer:customer.id,
-                receipt_email:token.email,
-                description: `purchase of ${product.name}`
-            }).then(async (charge)=>{
-                var id = charge.id
-                var name = charge.billing_details.name
-                var price =  product.price
-                result = await strapi.services.payment.create({
-                    transaction_id :id,
-                    username:name
-
-                });
-                console.log(result.transaction_id)
-                return result.transaction_id
-            }).catch(err =>{console.log(err)})
-        }))
-        
-    } 
+    }
+     
 };

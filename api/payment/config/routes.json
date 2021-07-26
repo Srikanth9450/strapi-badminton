@@ -56,6 +56,14 @@
       "config": {
         "policies": ["global::isAuthenticated"]
       }
+    },
+    {
+        "method": "POST",
+        "path": "/payment",
+        "handler": "payment.stripePay",
+        "config": {
+            "policies": []
+        }
     }
   ]
 }
