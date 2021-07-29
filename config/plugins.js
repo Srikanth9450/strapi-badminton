@@ -14,11 +14,11 @@ module.exports = ({ env }) => ({
     upload: {
       provider: 'aws-s3',
       providerOptions: {
-        accessKeyId: env('AKIA3UHUR4XOTC6K3MPC'),
-        secretAccessKey: env('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'),
-        region: env('us-east-2'),
+        accessKeyId: env('KEY_ID'),
+        secretAccessKey: env('SECRET_KEY'),
+        region: env('REGION'),
         params: {
-          Bucket: env('strapi-images-srikanth'),
+          Bucket: env('BUCKET_NAME'),
         },
       },
     },
